@@ -54,34 +54,71 @@ sbatch myscript.sh
 
 ```bash
 #!/bin/bash
-#SBATCH -J myjob
-#SBATCH -o output_%n.log
-#SBATCH -N 1
-#SBATCH --ntasks-per-node=1
+#SBATCH --job-name=pyjob
+#SBATCH --output=output_%j.log
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=<your-email>
+#SBATCH --ntasks=1
 #SBATCH --cpus-per-task=$SLURM_CPUS_PER_TASK
 #SBATCH --mem=$SLURM_MEM_PER_NODE
 #SBATCH --gres=gpu:$SLURM_GPUS_PER_NODE
-#SBATCH --time=1:00:00
 
-echo "Starting job on node $SLURM_NODELIST..."
+while [[ $# -gt 0 ]]
+do
+key="$1"
 
-# Load Conda module and activate environment
-module load anaconda
-conda activate myenv
+case $key in
+    -p|--path)
+    SCRIPT_PATH="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -n|--cpus)
+    CPU_COUNT="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -m|--memory)
+    MEMORY_SIZE="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -g|--gpu-memory)
+    GPU_MEMORY_SIZE="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # unknown option
+    shift # past argument
+    ;;
+esac
+done
 
-# Execute Python script
-python myscript.py
+if [[ -z "${SCRIPT_PATH}" ]]; then
+    echo "ERROR: No script path provided. Please use the -p or --path option to specify the path of the Python script."
+    exit 1
+fi
 
-# Deactivate Conda environment
-conda deactivate
+srun -n 1 -c ${CPU_COUNT} --mem=${MEMORY_SIZE}G \
+    --gres=gpu:${GPU_MEMORY_SIZE} \
+    python ${SCRIPT_PATH}
 
-echo "Job completed on node $SLURM_NODELIST."
 ```
 
 Here's what each line does:
 
 #!/bin/bash specifies that this script should be run using the Bash shell.
-The #SBATCH lines specify options for the Slurm job scheduler. --job-name sets the name of the job (myjob in this case), --output specifies the name of the output log file (output_<node_name>.log), --nodes sets the number of nodes to use (1 in this case), --ntasks-per-node sets the number of tasks per node (1 in this case), --cpus-per-task sets the number of CPU cores per task (using the $SLURM_CPUS_PER_TASK environment variable), --mem sets the amount of memory per node (using the $SLURM_MEM_PER_NODE environment variable), --gres sets the GPU resources per node (using the $SLURM_GPUS_PER_NODE environment variable), and --time sets the maximum runtime for the job (1 hour in this case).
+
+The #SBATCH lines specify options for the Slurm job scheduler. 
+  --job-name sets the name of the job (myjob in this case), 
+  --output specifies the name of the output log file (output_<node_name>.log), 
+  --nodes sets the number of nodes to use (1 in this case), 
+  --ntasks-per-node sets the number of tasks per node (1 in this case), 
+  --cpus-per-task sets the number of CPU cores per task (using the $SLURM_CPUS_PER_TASK environment variable), 
+  --mem sets the amount of memory per node (using the $SLURM_MEM_PER_NODE environment variable), 
+  --gres sets the GPU resources per node (using the $SLURM_GPUS_PER_NODE environment variable), and 
+  --time sets the maximum runtime for the job (1 hour in this case).
+  
 - The echo command prints a message to the console to indicate that the job has started.
 - The module and conda commands load the Anaconda module and activate the myenv environment.
 - The python command runs the myscript.py Python script.
@@ -96,6 +133,10 @@ sbatch -c 8 --mem=16G --gres=gpu:1 \
 ```
 
 This will run the pyjob.sh script with the specified resource requirements and output to the specified log file. Once the job completes, a notification will be sent to the specified email address.
+
+```
+$ sbatch pyjob.sh -p my_script.py -n 2 -m 4 -g 8
+```
 
 # Conclusion
 This is just a brief introduction to SLURM. For more information, see the official documentation.
