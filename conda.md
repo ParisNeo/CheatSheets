@@ -10,6 +10,12 @@ Download and install Anaconda or Miniconda from the official website (https://ww
 ```
 conda create --name myenv
 ```
+## Create a new environment with a specific python version
+```
+conda create --name myenv python=3.10
+```
+
+
 ## Activate an environment
 ```
 conda activate myenv
