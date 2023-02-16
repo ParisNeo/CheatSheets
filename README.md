@@ -10,6 +10,7 @@ This repository contains a collection of cheat sheets for popular tools and tech
 
 - [Conda](conda.md)
 - [Git](git.md)
+- [Slurm](slurm.md)
 - [Pip](pip.md)
 - [Docker](docker.md)
 - [Markdown](markdown.md)
