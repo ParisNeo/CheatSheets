@@ -1,5 +1,9 @@
 # CheatSheets
 
+[![GitHub last commit](https://img.shields.io/github/last-commit/ParisNeo/CheatSheets.svg)](https://github.com/ParisNeo/CheatSheets/commits/main)
+[![GitHub license](https://img.shields.io/github/license/ParisNeo/CheatSheets)](https://github.com/ParisNeo/CheatSheets/blob/main/LICENSE)
+
+
 This repository contains a collection of cheat sheets for popular tools and technologies. Each cheat sheet is provided as a separate Markdown file.
 
 ## List of Cheat Sheets
