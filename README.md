@@ -16,6 +16,7 @@ This repository contains a collection of cheat sheets for popular tools and tech
 - [Markdown](markdown.md)
 - [Regular Expressions (RegEx)](regex.md)
 - [SSH](ssh.md)
+- [Firebase](firebase.md)
 
 ## Contributing
 
