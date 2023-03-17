@@ -157,6 +157,20 @@ Reset the current branch to a previous commit.
 git reset --hard HEAD~1
 ```
 
+# Submodule
+To initialize submodules:
+```git
+git submodule init
+```
+To update submodules:
+```git
+git submodule update
+```
+To recursively initialize and update submodules:
+```git
+git submodule update --recursive
+```
+Note that if the repository has been updated to include new submodules, you will need to run the git submodule init command again to initialize them.
 
 ## Resources
 
