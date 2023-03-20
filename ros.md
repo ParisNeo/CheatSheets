@@ -108,13 +108,11 @@ choco upgrade ros-noetic-desktop_full -y --execution-timeout=0
 ```
 You are almost there!
 
-You may need to reboot your system. Make sure to read the output text. If reboot is required, reboot the system and reopen x64 Native Tools Command Prompt for VS 2019 as Administrator and execute this:
-```
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass
-```
+You may need to reboot your system. Make sure to read the output text. If reboot is required, reboot the system and reopen x64 Native Tools Command Prompt for VS 2019 .
+
 We need to source ros by executing:
 ```
-C:\opt\ros\noetic\x64\setup.ps1
+C:\opt\ros\noetic\x64\setup.bat
 ```
 Now you are ready to use ros. You can launch roscore for example:
 ```
