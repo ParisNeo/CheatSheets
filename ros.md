@@ -1,12 +1,14 @@
 # Ros Cheat Sheet
 
-# Table of Contents
+## Table of Contents
 - [ROS Basics](#rosbasics)
+- [Installing ROS](#installingros)
+  - [Linux](#installingroslinux)
+  - [Windows](#installingroswindows)
 - [ROS Command Line](#roscmdline)
-- [ROS Basics](#rosbasics)
 
-## ROS Basics
 <a name="rosbasics"></a>
+## ROS Basics
 
 - ROS is a middleware that allows communication between different parts of a robotic system.
 - ROS uses a publish-subscribe messaging system.
@@ -14,8 +16,101 @@
 - ROS topics are named buses over which nodes communicate.
 - ROS messages are the data structures used to communicate between nodes over topics.
 
-## ROS Command Line
+<a name="installingros"></a>
+## Installing ROS
+<a name="installingroslinux"></a>
+### Installing ROS on Linux
+1- Choose your version of ROS (e.g., Kinetic, Melodic, Noetic)
+2- Configure Ubuntu repositories:
+```
+sudo add-apt-repository universe
+sudo add-apt-repository restricted
+sudo add-apt-repository multiverse
+```
+3- Set up your sources.list:
+```
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+```
+4- Set up your keys:
+```
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+```
+5- Install ROS:
+```
+sudo apt-get update
+sudo apt-get install ros-<version>-desktop-full
+```
+Replace `<version>` with the ROS version you want to install.
+6- Initialize ROS:
+```
+sudo rosdep init
+rosdep update
+echo "source /opt/ros/<version>/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+Replace `<version>` with the ROS version you installed.
+And that's it! You should now have ROS installed on your Linux machine. Remember to test your installation by running `roscore`.
+
+<a name="installingroswindows"></a>
+### Installing ROS on windows
+1- First install visual studio 2019 or higher
+2- Ros noetic or higher is advised.
+3- Install chocolatey:
+- In the Start Menu, find the "x64 Native Tools Command Prompt for VS 2019" item.
+- Right Click, select More then "Run as Administrator"
+- Copy the following command line:
+```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+```
+- Paste it into the command window.
+- Approve any prompts
+- Once it has completed, close the command prompt to complete the install.
+
+4- install git: First verify that git is installed by typing:
+```
+git --version
+```
+If you have an error then you need to install git:
+```
+choco upgrade git -y
+```
+Verify again and it should work
+```
+git --version
+```
+5- Binary Package Installation
+To get things started, install the recommended desktop_full metapackage. A Metapackage is a collection of other packages. The Desktop-Full metapackage refers to a number of other packages needed to build, run, debug and visualize a robot.
+
+If you have closed it, open the Visual Studio Command Prompt as Administrator as described above.
+- first we activate Powershell:
+```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass
+```
+Then we install ros. Here is an example for installing ros noetic :
+```
+mkdir c:\opt\chocolatey
+set ChocolateyInstall=c:\opt\chocolatey
+choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
+choco upgrade ros-noetic-desktop_full -y --execution-timeout=0
+```
+You are almost there!
+
+You may need to reboot your system. Make sure to read the output text. If reboot is required, reboot the system and reopen x64 Native Tools Command Prompt for VS 2019 as Administrator and execute this:
+```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass
+```
+We need to source ros by executing:
+```
+C:\opt\ros\noetic\x64\setup.ps1
+```
+Now you are ready to use ros. You can launch roscore for example:
+```
+roscore
+```
+
+
 <a name="roscmdline"></a>
+## ROS Command Line
 
 - `roscd` changes the current directory to a package in the ROS workspace.
 - `rosrun` runs a node from a package.
@@ -61,87 +156,6 @@ Parameters are global variables that can be accessed by all nodes.
 
 roslaunch is a tool for launching multiple nodes and configuring their parameters in one command.
 These are just some of the most commonly used ROS commands and concepts. For more detailed information, refer to the ROS documentation.
-
-## Installing ROS
-### Installing ROS on Linux
-1- Choose your version of ROS (e.g., Kinetic, Melodic, Noetic)
-2- Configure Ubuntu repositories:
-```
-sudo add-apt-repository universe
-sudo add-apt-repository restricted
-sudo add-apt-repository multiverse
-```
-3- Set up your sources.list:
-```
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-```
-4- Set up your keys:
-```
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
-```
-5- Install ROS:
-```
-sudo apt-get update
-sudo apt-get install ros-<version>-desktop-full
-```
-Replace `<version>` with the ROS version you want to install.
-6- Initialize ROS:
-```
-sudo rosdep init
-rosdep update
-echo "source /opt/ros/<version>/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-```
-Replace `<version>` with the ROS version you installed.
-And that's it! You should now have ROS installed on your Linux machine. Remember to test your installation by running `roscore`.
-
-### Installing ROS on windows
-1- First install visual studio 2019 or higher
-2- Ros noetic or higher is advised.
-3- Install chocolatey:
-- In the Start Menu, find the "x64 Native Tools Command Prompt for VS 2019" item.
-- Right Click, select More then "Run as Administrator"
-- Copy the following command line:
-```
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-```
-- Paste it into the command window.
-- Approve any prompts
-- Once it has completed, close the command prompt to complete the install.
-
-4- install git: First verify that git is installed by typing:
-```
-git --version
-```
-If you have an error then you need to install git:
-```
-choco upgrade git -y
-```
-Verify again and it should work
-```
-git --version
-```
-5- Binary Package Installation
-To get things started, install the recommended desktop_full metapackage. A Metapackage is a collection of other packages. The Desktop-Full metapackage refers to a number of other packages needed to build, run, debug and visualize a robot.
-
-If you have closed it, open the Visual Studio Command Prompt as Administrator as described above.
-- first we activate Powershell:
-```
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass
-```
-Then we install ros. Here is an example for installing ros noetic :
-```
-mkdir c:\opt\chocolatey
-set ChocolateyInstall=c:\opt\chocolatey
-choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
-choco upgrade ros-noetic-desktop_full -y --execution-timeout=0
-```
-You are almost there!
-
-You may need to reboot your system. Make sure to read the output text. If reboot is required, reboot the system and reopen x64 Native Tools Command Prompt for VS 2019 and execute this:
-```
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass
-```
 
 
 
