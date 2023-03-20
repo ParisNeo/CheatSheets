@@ -6,6 +6,12 @@
   - [Linux](#installingroslinux)
   - [Windows](#installingroswindows)
 - [ROS Command Line](#roscmdline)
+- [ROS Nodes](#rosnodes)
+- [ROS Topics](#rostopics)
+- [ROS Messages](#rosmessages)
+- [ROS Parameters](#rosparameters)
+- [ROS Launch](#roslaunch)
+- 
 
 <a name="rosbasics"></a>
 ## ROS Basics
@@ -118,6 +124,7 @@ roscore
 - `rostopic` echo displays the messages being sent over a topic.
 - `rosmsg` show displays the structure of a message.
 
+<a name="rosnodes"></a>
 ## ROS Nodes:
 
 - `roscore` initializes the ROS master and should be the first command to run when starting a ROS system.
@@ -125,6 +132,7 @@ roscore
 - `rosnode` info displays information about a specific node.
 - `rosnode` kill terminates a node.
 
+<a name="rostopics"></a>
 ## ROS Topics:
 
 - `rostopic` pub publishes a message to a topic.
@@ -132,12 +140,14 @@ roscore
 - `rostopic` bw displays the bandwidth usage of a topic.
 - `rosmsg` show displays the structure of a message.
 
+<a name="rosmessages"></a>
 ## ROS Messages:
 
 - `rosmsg` show displays the structure of a message.
 - `rosmsg` info displays information about a specific message type.
 - `rosmsg` list lists all available message types.
 
+<a name="rosservices"></a>
 ## ROS Services:
 
 A service is a request-response communication between nodes.
@@ -145,6 +155,7 @@ A service is a request-response communication between nodes.
 - `rosservice` call sends a request to a service.
 - `rosservice` info displays information about a specific service.
 
+<a name="rosparameters"></a>
 ## ROS Parameters:
 
 Parameters are global variables that can be accessed by all nodes.
@@ -152,6 +163,7 @@ Parameters are global variables that can be accessed by all nodes.
 - `rosparam` get retrieves the value of a parameter.
 - `rosparam` list lists all available parameters.
 
+<a name="roslaunch"></a>
 ## ROS Launch:
 
 roslaunch is a tool for launching multiple nodes and configuring their parameters in one command.
