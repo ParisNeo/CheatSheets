@@ -1,10 +1,12 @@
 # Ros Cheat Sheet
 
 # Table of Contents
-- [ROS Basics](#rosbasics) 
-[TOC]
+- [ROS Basics](#rosbasics)
+- [ROS Command Line](#roscmdline)
+- [ROS Basics](#rosbasics)
 
 ## ROS Basics
+<a name="rosbasics"></a>
 
 - ROS is a middleware that allows communication between different parts of a robotic system.
 - ROS uses a publish-subscribe messaging system.
@@ -12,7 +14,8 @@
 - ROS topics are named buses over which nodes communicate.
 - ROS messages are the data structures used to communicate between nodes over topics.
 
-## ROS Command Line:
+## ROS Command Line
+<a name="roscmdline"></a>
 
 - `roscd` changes the current directory to a package in the ROS workspace.
 - `rosrun` runs a node from a package.
