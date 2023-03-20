@@ -1,5 +1,7 @@
 # Ros Cheat Sheet
 
+[TOC]
+
 ## ROS Basics:
 
 - ROS is a middleware that allows communication between different parts of a robotic system.
@@ -130,6 +132,12 @@ choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
 choco upgrade ros-noetic-desktop_full -y --execution-timeout=0
 ```
 You are almost there!
+
+You may need to reboot your system. Make sure to read the output text. If reboot is required, reboot the system and reopen x64 Native Tools Command Prompt for VS 2019 and execute this:
+```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass
+```
+
 
 
 ## Create a ros project
