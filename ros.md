@@ -1,8 +1,10 @@
 # Ros Cheat Sheet
 
+# Table of Contents
+- [ROS Basics](#rosbasics) 
 [TOC]
 
-## ROS Basics:
+## ROS Basics
 
 - ROS is a middleware that allows communication between different parts of a robotic system.
 - ROS uses a publish-subscribe messaging system.
