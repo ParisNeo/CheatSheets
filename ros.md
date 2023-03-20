@@ -89,6 +89,48 @@ Replace `<version>` with the ROS version you installed.
 And that's it! You should now have ROS installed on your Linux machine. Remember to test your installation by running `roscore`.
 
 ### Installing ROS on windows
+1- First install visual studio 2019 or higher
+2- Ros noetic or higher is advised.
+3- Install chocolatey:
+- In the Start Menu, find the "x64 Native Tools Command Prompt for VS 2019" item.
+- Right Click, select More then "Run as Administrator"
+- Copy the following command line:
+```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+```
+- Paste it into the command window.
+- Approve any prompts
+- Once it has completed, close the command prompt to complete the install.
+
+4- install git: First verify that git is installed by typing:
+```
+git --version
+```
+If you have an error then you need to install git:
+```
+choco upgrade git -y
+```
+Verify again and it should work
+```
+git --version
+```
+5- Binary Package Installation
+To get things started, install the recommended desktop_full metapackage. A Metapackage is a collection of other packages. The Desktop-Full metapackage refers to a number of other packages needed to build, run, debug and visualize a robot.
+
+If you have closed it, open the Visual Studio Command Prompt as Administrator as described above.
+- first we activate Powershell:
+```
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass
+```
+Then we install ros. Here is an example for installing ros noetic :
+```
+mkdir c:\opt\chocolatey
+set ChocolateyInstall=c:\opt\chocolatey
+choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
+choco upgrade ros-noetic-desktop_full -y --execution-timeout=0
+```
+You are almost there!
+
 
 ## Create a ros project
 1- Create a new ROS workspace:
