@@ -66,7 +66,7 @@ And that's it! You should now have ROS installed on your Linux machine. Remember
 
 <a name="installingroswindows"></a>
 ### Installing ROS on windows
-1- First install visual studio 2019 or higher
+1- First install visual studio 2019 or higher (make sure you install C++ development tools)
 2- Ros noetic or higher is advised.
 3- Install chocolatey:
 - In the Start Menu, find the "x64 Native Tools Command Prompt for VS 2019" item.
@@ -118,6 +118,7 @@ Now you are ready to use ros. You can launch roscore for example:
 ```
 roscore
 ```
+
 
 
 <a name="roscmdline"></a>
