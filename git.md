@@ -170,6 +170,10 @@ To recursively initialize and update submodules:
 ```git
 git submodule update --recursive
 ```
+To do it all at once, you can do this:
+```git
+git submodule update --init --recursive
+```
 Note that if the repository has been updated to include new submodules, you will need to run the git submodule init command again to initialize them.
 
 ## Resources
