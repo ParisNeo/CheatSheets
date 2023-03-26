@@ -158,6 +158,12 @@ git reset --hard HEAD~1
 ```
 
 # Submodule
+Adding Submodules
+To add a submodule to your Git repository, use the git submodule add command:
+```git
+git submodule add <repository URL> <path>
+```
+
 To initialize submodules:
 ```git
 git submodule init
