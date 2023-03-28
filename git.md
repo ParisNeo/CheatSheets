@@ -180,6 +180,11 @@ To do it all at once, you can do this:
 ```git
 git submodule update --init --recursive
 ```
+To pull the git repository and all its submodules, you can do this:
+```git
+git pull --recurse-submodules
+```
+
 Note that if the repository has been updated to include new submodules, you will need to run the git submodule init command again to initialize them.
 
 ## Resources
