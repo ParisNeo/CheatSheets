@@ -9,6 +9,7 @@ This repository contains a collection of cheat sheets for popular tools and tech
 ## List of Cheat Sheets
 
 - [Conda](conda.md)
+- [virtualenv](virtualenv.md)
 - [Git](git.md)
 - [ROS](ros.md)
 - [Slurm](slurm.md)
