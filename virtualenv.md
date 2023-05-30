@@ -6,6 +6,9 @@ Before you can create virtual environments with `venv`, make sure you have Pytho
 
 If you don't have Python installed, you can download it from the official Python website: [https://www.python.org/downloads](https://www.python.org/downloads)
 
+```bash
+pip install virtualenv
+```
 
 ### 1. Creating a Virtual Environment
 
