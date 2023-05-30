@@ -1,5 +1,12 @@
 ## Creating and Activating Virtual Environments with `venv`
 
+### 0. Installing `venv`
+
+Before you can create virtual environments with `venv`, make sure you have Python installed on your system. Python 3.3 or later comes with `venv` built-in, so you don't need to install anything extra.
+
+If you don't have Python installed, you can download it from the official Python website: [https://www.python.org/downloads](https://www.python.org/downloads)
+
+
 ### 1. Creating a Virtual Environment
 
 To create a new virtual environment using `venv`, follow these steps:
