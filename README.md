@@ -19,7 +19,7 @@ This repository contains a collection of cheat sheets for popular tools and tech
 - [Regular Expressions (RegEx)](regex.md)
 - [SSH](ssh.md)
 - [Firebase](firebase.md)
-
+- [ascii color codes](ascii_color_codes.md)
 ## Contributing
 
 If you would like to contribute to this repository, feel free to create a pull request with your changes. Please ensure that your contribution is properly formatted as a Markdown file and follows the style of the existing cheat sheets.
