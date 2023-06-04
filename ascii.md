@@ -51,6 +51,8 @@ box_bottom_left = '└'
 box_bottom_right = '┘'
 box_horizontal = '─'
 box_vertical = '│'
+box_vertical_left = '┤'
+box_vertical_right = '├'
 box_cross = '┼'
 ```
 ```python
