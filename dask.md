@@ -14,6 +14,7 @@ First, let's create a Conda environment with Python 3.10 and the necessary libra
 conda create -n dask_env python=3.10
 conda activate dask_env
 pip install dask distributed
+pip install lz4
 ```
 
 These commands will create a new Conda environment called "dask_env" and install the required libraries.
