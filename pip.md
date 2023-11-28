@@ -1,3 +1,108 @@
+# `pip` Cheatsheet
+
+## Installation
+
+### Install a Package
+```bash
+pip install package_name
+```
+
+### Install a Specific Version
+```bash
+pip install package_name==version_number
+```
+
+### Install from Requirements File
+```bash
+pip install -r requirements.txt
+```
+
+## Package Management
+
+### Show Installed Packages
+```bash
+pip list
+```
+
+### Show Outdated Packages
+```bash
+pip list --outdated
+```
+
+### Upgrade a Package
+```bash
+pip install --upgrade package_name
+```
+
+### Uninstall a Package
+```bash
+pip uninstall package_name
+```
+
+## Requirements
+
+### Generate Requirements File
+```bash
+pip freeze > requirements.txt
+```
+
+### Install from Requirements File
+```bash
+pip install -r requirements.txt
+```
+
+## Search
+
+### Search for a Package
+```bash
+pip search package_name
+```
+
+## Environment
+
+### Virtual Environment
+#### Create Virtual Environment
+```bash
+python -m venv venv_name
+```
+
+#### Activate Virtual Environment (Windows)
+```bash
+venv_name\Scripts\activate
+```
+
+#### Activate Virtual Environment (Unix or MacOS)
+```bash
+source venv_name/bin/activate
+```
+
+#### Deactivate Virtual Environment
+```bash
+deactivate
+```
+
+## Miscellaneous
+
+### Show Help
+```bash
+pip --help
+```
+
+### Check Pip Version
+```bash
+pip --version
+```
+
+### Install from Git
+```bash
+pip install git+https://github.com/username/repo.git
+```
+
+### Install from Local Directory
+```bash
+pip install .
+```
+## Summary
 - pip install package_name                    # Install a package
 - pip install package_name==version           # Install a specific version of a package
 - pip install --upgrade package_name          # Upgrade a package to the latest version
