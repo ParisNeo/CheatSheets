@@ -1,8 +1,12 @@
 # Python package making
 ## Fast
-### Build
+### Build setup.py
 ```bash
 python setup.py sdist bdist_wheel
+```
+### Build project.toml
+```bash
+python -m build
 ```
 
 ```bash
