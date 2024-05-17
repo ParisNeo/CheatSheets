@@ -8,7 +8,7 @@ python setup.py sdist bdist_wheel
 ```bash
 python -m build
 ```
-
+### Push to pypi
 ```bash
 python -m twine upload dist/\*
 ```
